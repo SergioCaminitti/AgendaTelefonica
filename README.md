@@ -1,46 +1,85 @@
-# Getting Started with Create React App
+Agenda Telefônica - Projeto Teste Prático
+Este projeto é uma aplicação web de uma Agenda Telefônica que permite cadastrar e pesquisar contatos, com as funcionalidades de cadastro, pesquisa, exclusão e log de alterações, conforme especificado na tarefa.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Tempo Total de Resolução:
+Tempo gasto na conclusão da tarefa: [20 horas]
 
-## Available Scripts
+1. Tecnologias Utilizadas
+Frontend: React, TypeScript
+Backend: Firebase (para armazenamento dos dados)
+Banco de Dados: Firebase Firestore (para armazenar contatos e telefones)
+Outras: HTML, CSS, JavaScript, Axios (para requisições)
 
-In the project directory, you can run:
+2. Funcionalidades
+Tela de Cadastro de Contato
+A tela de cadastro de contato permite inserir as informações de um novo contato na agenda, incluindo:
 
-### `npm start`
+Nome da pessoa.
+Idade da pessoa.
+Número(s) de telefone. A pessoa pode ter múltiplos números de telefone.
+Botão de inclusão para cadastrar um novo contato.
+Tela de Pesquisa de Contato
+A tela de pesquisa exibe a lista de contatos e permite realizar as seguintes ações:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Pesquisar pelo nome ou número de telefone.
+Alterar um contato selecionado.
+Excluir um contato selecionado.
+A pesquisa pode ser feita por nome ou número de telefone. Quando o campo de pesquisa é limpo, todos os contatos são exibidos novamente.
+Funcionalidade de Excluir Contato
+Quando um contato é excluído, o sistema gera um log de exclusão com a data e hora da exclusão e o nome do contato excluído, que é gravado em um arquivo de log.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+3. Estruturas das Tabelas
+A seguir estão as tabelas utilizadas para armazenar os dados no banco de dados.
 
-### `npm test`
+Tabela: Contato
+Atributo	Tipo de Dado	Observação
+ID	NUMBER(14)	Chave Primária
+NOME	VARCHAR(100)	Nome do contato
+IDADE	NUMBER(3)	Idade do contato
+Tabela: Telefone
+Atributo	Tipo de Dado	Observação
+IDCONTATO	NUMBER(14)	Chave Primária e Estrangeira (referência ao ID da tabela Contato)
+ID	NUMBER(14)	Chave Primária
+NUMERO	VARCHAR(16)	Número de telefone
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Como Rodar o Projeto Localmente
+Pré-requisitos
+Node.js instalado. Você pode baixar o Node.js em https://nodejs.org.
+Firebase configurado para o projeto. Você deve obter as credenciais de configuração do Firebase que serão enviadas junto com este projeto.
+Passo a Passo para Executar o Projeto
+Clone o repositório:
 
-### `npm run build`
+bash
+Copiar código
+git clone https://github.com/usuario/repositorio.git
+cd repositorio
+Instale as dependências do projeto:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Copiar código
+npm install
+Configure o Firebase:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+No console do Firebase, crie um projeto.
+Adicione um app Web.
+Copie as credenciais de configuração do Firebase para o arquivo firebase.ts no seu projeto (em src/firebase.ts).
+Habilite o Firestore Database no Firebase.
+Inicie o servidor de desenvolvimento:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+sql
+Copiar código
+npm start
+Acesse o projeto no navegador em http://localhost:3000.
 
-### `npm run eject`
+5. Função de Log
+A exclusão de contatos é registrada em um arquivo de log. Cada vez que um contato é excluído, as informações seguintes são gravadas:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Nome do contato excluído
+Data e hora da exclusão
+Exemplo de Log:
+arduino
+Copiar código
+Contato 'João Silva' foi excluído em 2024-11-05 14:30:00.
+Os logs são armazenados em um arquivo de texto e podem ser visualizados na pasta logs/ do projeto.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+6. Conclusão
+Esse projeto foi realizado com o objetivo de simular uma aplicação de agenda telefônica simples, com funcionalidades de cadastro, pesquisa, edição e exclusão de contatos, além de gerar logs de exclusão. Ele foi desenvolvido em React com TypeScript e integrado ao Firebase para persistência dos dados.
