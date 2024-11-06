@@ -3,7 +3,7 @@
 Este projeto é uma aplicação web de uma **Agenda Telefônica** que permite cadastrar e pesquisar contatos, com as funcionalidades de cadastro, pesquisa, exclusão e log de alterações, conforme especificado na tarefa.
 
 ## Tempo Total de Resolução
-**Tempo gasto na conclusão da tarefa:** 20 horas
+**Tempo gasto na conclusão da tarefa:** 10 horas
 
 ## 1. Tecnologias Utilizadas
 
