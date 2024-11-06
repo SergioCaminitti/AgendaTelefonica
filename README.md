@@ -69,7 +69,7 @@ A seguir estão as tabelas utilizadas para armazenar os dados no banco de dados:
 1. **Clone o repositório:**
 
    ```bash
-   git clone [https://github.com/usuario/repositorio.git](https://github.com/SergioCaminitti/AgendaTelefonica.git)
+   git clone https://github.com/SergioCaminitti/AgendaTelefonica.git
    cd AgendaTelefonica
    ```
    
