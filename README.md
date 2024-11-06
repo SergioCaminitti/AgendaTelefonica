@@ -106,9 +106,7 @@ A exclusão de contatos é registrada em um arquivo de log. Cada vez que um cont
 Pronto agora todo contato que você excluir irá ser registrado no arquivo server/deletion-log.txt
 
 Exemplo de Log:
-   ```bash
-    2024-11-05T23:08:52.639Z - Contato excluído: Sergio
-   ```
+2024-11-05T23:08:52.639Z - Contato excluído: Sergio
   
 ## 6. Conclusão
 
