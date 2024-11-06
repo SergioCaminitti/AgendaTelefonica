@@ -98,11 +98,17 @@ A exclusão de contatos é registrada em um arquivo de log. Cada vez que um cont
 - **Nome do contato excluído**
 - **Data e hora da exclusão**
 
+1. **Iniciando servidor para armazenar as logs**
+
+```bash
+node server/server.js
+```
+Pronto agora todo contato que você excluir irá ser registrado no arquivo server/deletion-log.txt
+
   Exemplo de Log:
    ```bash
     2024-11-05T23:08:52.639Z - Contato excluído: Sergio
    ```
-   Os logs são armazenados em um arquivo de texto e podem ser visualizados na pasta logs/ do projeto.
   
 ## 6. Conclusão
 Esse projeto foi realizado com o objetivo de simular uma aplicação de agenda telefônica simples, com funcionalidades de cadastro, pesquisa, edição e exclusão de contatos, além de gerar logs de exclusão. Ele foi desenvolvido em React com TypeScript e integrado ao Firebase para persistência dos dados.   
