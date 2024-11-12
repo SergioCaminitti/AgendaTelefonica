@@ -32,10 +32,7 @@ const NewContact: React.FC = () => {
 
   const formatPhoneNumber = (value: string) => {
     const cleanedValue = value.replace(/\D/g, "");
-    return cleanedValue
-      .replace(/^(\d{2})(\d)/, "($1) $2")
-      .replace(/(\d{5})(\d)/, "$1-$2")
-      .slice(0, 15);
+    return cleanedValue.slice(0, 11);
   };
 
   const handlePhoneChange = (index: number, value: string) => {
@@ -49,7 +46,8 @@ const NewContact: React.FC = () => {
     const contactData = { name, age: parseInt(age), phoneNumbers };
 
     if (id) {
-      await updateContact(id, { ...contactData, phoneNumbers: phoneNumbers.map((number, index) => ({ id: `${index}`, number, includes: (searchQuery: string) => number.includes(searchQuery) })), id });
+      await updateContact(id, { ...contactData, phoneNumbers: phoneNumbers.map((number, index) => 
+        ({ id: `${index}`, number, includes: (searchQuery: string) => number.includes(searchQuery) })), id });
     } else {
       await addContact(contactData);
     }
