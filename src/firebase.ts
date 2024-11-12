@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getDoc, getFirestore, collection, addDoc, getDocs, onSnapshot, deleteDoc, doc, updateDoc, setDoc } from "firebase/firestore";
 
 export interface PhoneNumber {
-    includes(searchQuery: string): unknown;
     id: string; 
     number: string; 
 }

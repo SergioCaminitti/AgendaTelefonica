@@ -1,2 +1,4 @@
 2024-11-05T23:08:52.639Z - Contato excluído: Sergio
 2024-11-12T13:38:29.518Z - Contato excluído: Pedro
+2024-11-12T13:45:12.218Z - Contato excluído: Teste
+2024-11-12T13:45:13.509Z - Contato excluído: Teste 2
