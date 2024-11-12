@@ -1,4 +1,3 @@
-// src/utils/logger.ts
 export const logDeletion = async (contactName: string) => {
   const message = `Contato excluído: ${contactName}`;
   

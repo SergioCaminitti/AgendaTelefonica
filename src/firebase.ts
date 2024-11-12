@@ -3,15 +3,15 @@ import { getDoc, getFirestore, collection, addDoc, getDocs, onSnapshot, deleteDo
 
 export interface PhoneNumber {
     includes(searchQuery: string): unknown;
-    id: string; // ID do número de telefone
-    number: string; // Número de telefone
+    id: string; 
+    number: string; 
 }
 
 export interface Contact {
-    id: string; // ID do contato
+    id: string; 
     name: string;
     age: number;
-    phoneNumbers: PhoneNumber[]; // Array de números de telefone
+    phoneNumbers: PhoneNumber[];
 }
 
 const firebaseConfig = {
