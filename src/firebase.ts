@@ -58,7 +58,6 @@ export const addContact = async (contact: { name: string; age: number; phoneNumb
       age: contact.age,
     });
 
-    // Adicionar cada telefone como documento na subcoleção "telefones"
     for (const number of contact.phoneNumbers) {
       await addDoc(collection(db, "contacts", contactRef.id, "telefones"), { number });
     }
@@ -68,16 +67,13 @@ export const addContact = async (contact: { name: string; age: number; phoneNumb
   }
 };
 
-// Função para deletar um contato e seus telefones
 export const deleteContact = async (id: string) => {
   try {
     const contactRef = doc(db, "contacts", id);
     const phonesSnapshot = await getDocs(collection(db, "contacts", id, "telefones"));
     
-    // Deletar cada telefone da subcoleção "telefones"
     await Promise.all(phonesSnapshot.docs.map(phoneDoc => deleteDoc(phoneDoc.ref)));
     
-    // Deletar o contato em si
     await deleteDoc(contactRef);
     console.log(`Contato com ID ${id} e seus telefones deletados com sucesso.`);
   } catch (error) {
@@ -85,7 +81,6 @@ export const deleteContact = async (id: string) => {
   }
 };
 
-// Função para obter contato com seus telefones
 export const getContact = async (id: string): Promise<Contact | null> => {
   const docRef = doc(db, "contacts", id);
   const docSnap = await getDoc(docRef);
@@ -110,11 +105,9 @@ export const getContact = async (id: string): Promise<Contact | null> => {
   } as Contact;
 };
 
-// Função para atualizar contato e seus telefones
 export const updateContact = async (id: string, data: Contact) => {
   const docRef = doc(db, "contacts", id);
   
-  // Atualizar informações do contato
   await updateDoc(docRef, {
     name: data.name,
     age: data.age

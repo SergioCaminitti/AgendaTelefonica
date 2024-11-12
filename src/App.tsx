@@ -5,7 +5,7 @@ import { ContactItem } from "./components/ContactItem";
 import { Contact, listenContacts, deleteContact } from "./firebase";
 import { useNavigate } from "react-router-dom";
 import "./App.css";
-import { logDeletion } from "./utils/logger"; // Importa a função de log
+import { logDeletion } from "./utils/logger";
 
 const App: React.FC = () => {
   const [contacts, setContacts] = useState<Contact[]>([]);
@@ -16,7 +16,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const unmount = listenContacts((data) => {
       setContacts(data);
-      setFilteredContacts(data); // Inicializa filteredContacts com todos os contatos
+      setFilteredContacts(data);
     });
     return () => unmount();
   }, []);
@@ -32,7 +32,7 @@ const App: React.FC = () => {
     const results = contacts.filter(
       (contact) =>
         contact.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        contact.phoneNumbers.some((number) => number.number.includes(searchQuery)) // Usando o campo 'number' de PhoneNumber
+        contact.phoneNumbers.some((number) => number.number.includes(searchQuery))
     );
     setFilteredContacts(results);
   };
@@ -41,7 +41,6 @@ const App: React.FC = () => {
     const value = e.target.value;
     setSearchQuery(value);
 
-    // Se a caixa de pesquisa estiver vazia, restaura a lista completa
     if (value === "") {
       setFilteredContacts(contacts);
     }
@@ -56,7 +55,7 @@ const App: React.FC = () => {
           type="text"
           placeholder="Digite o nome ou número"
           value={searchQuery}
-          onChange={handleInputChange} // Chama a função para atualizar o valor e restaurar a lista quando vazio
+          onChange={handleInputChange}
           className="search-input"
         />
         <button className="search-button" onClick={handleSearch}>
